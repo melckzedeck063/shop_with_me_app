@@ -9,13 +9,22 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
+    "@react-navigation/native-stack": "^6.9.0",
     "expo": "~46.0.9",
     "expo-status-bar": "~1.4.0",
     "react": "18.0.0",
-    "react-native": "0.69.5"
+    "react-hook-form": "^7.39.1",
+    "react-native": "0.69.5",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "@react-navigation/native": "^6.0.13",
+    "react-native-safe-area-context": "^4.3.4",
+    "react-native-screens": "^3.17.0",
+    "tailwindcss": "^3.1.8",
+    "tailwindcss-react-native": "^1.7.10"
   },
   "private": true
 }

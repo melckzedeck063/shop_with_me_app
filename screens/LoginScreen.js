@@ -39,10 +39,10 @@ const LoginScreen = () => {
     }
 
   return (
-    <View className = 'bg-slate-600 w-full h-full py-6'>
+    <View className = 'bg-slate-200 w-full h-full py-6'>
           <KeyboardAvoidingView>
-          <Text className={`text-white text-center font-medium text-3xl ${height < 400 ? 'mt-24' : 'mt-36'} `}>Login Screen</Text>
-      <View  className="w-10/12 mx-auto shadow-md bg-slate-100 rounded-md py-4 mt-4 px-6" style={{alignSelf : 'center'}} >
+          <Text className={`text-sky-600 text-center font-medium text-3xl ${height < 400 ? 'mt-24' : 'mt-36'} `}>Login Screen</Text>
+      <View  className="w-10/12 mx-auto shadow-md bg-white rounded-md py-4 mt-4 px-6" style={{alignSelf : 'center'}} >
       <Text className="text-2xl font-medium text-sky-600 text-center" >Sign In</Text>
           <View className="my-2">
            <Text className="text-sky-600 text-xl" > Username</Text>
@@ -57,7 +57,7 @@ const LoginScreen = () => {
       <Controller
         control={control}
         rules={{
-         required: true,
+          required: true,
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput  className={`rounded-md bg-white px-4 py-1.5`}
@@ -76,7 +76,8 @@ const LoginScreen = () => {
          <Controller
         control={control}
         rules={{
-         required: true,
+          required: true,
+          min : 8
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput  className={`rounded-md bg-white px-4 py-1.5`}

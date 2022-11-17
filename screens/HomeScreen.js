@@ -1,4 +1,4 @@
-import { View, Text, FlatList, TouchableOpacity, useWindowDimensions, TextInput, Image } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, ScrollView, KeyboardAvoidingView, useWindowDimensions, TextInput, Image } from 'react-native'
 import React from 'react'
 
 import image from '../assets/images/pexels-jonathan-borba-2983101.jpg'
@@ -11,6 +11,7 @@ import RestaurantsCard from '../components/RestaurantsCard'
 import { useForm, Controller } from 'react-hook-form'
 
 import {Ionicons, FontAwesome5} from '@expo/vector-icons'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const Cards = [
   { product: "Pizza", photo: image , id:1},
@@ -36,7 +37,10 @@ const HomeScreen = () => {
   }
   
   return (
-    <View className='bg-gray-200 w-full h-full'>
+    <KeyboardAvoidingView>
+      <SafeAreaView >
+      <ScrollView >
+      <View className='bg-gray-200 w-full h-full'>
       <View className={`${height < 400 ? 'mt-8' : 'mt-12'}`} >
         <View className="flex-row justify-between mx-auto px-4">
           <View>
@@ -47,7 +51,7 @@ const HomeScreen = () => {
           </View>
         </View>
         <View className="my-2 flex-row space-x-3 w-11/12" style={{ alignSelf: 'center' }}>
-        <View className="my-1 w-9/12">
+              <View className={`my-1 w-9/12 ${width < 400 ? 'ml-1' : 'ml-4'} `}>
          <Controller
         control={control}
         rules={{
@@ -66,7 +70,7 @@ const HomeScreen = () => {
       />
       {/* {errors.password && <Text className="text-red-500">This is required.</Text>} */}
        </View>
-       <View className="mt-2">
+       <View className="mt-1.5">
        <TouchableOpacity disabled={!isDirty || !isValid} className="rounded-md px-2 bg-blue-600 py-1 hover:text-sky-300"
        onPress={handleSubmit(onSubmit)}
         >
@@ -101,7 +105,7 @@ const HomeScreen = () => {
       <Text className='text-sky-600 font-medium text-xl mt-2 px-2'>Top Restaurants</Text>
       <TouchableOpacity>
       <Text className='text-amber-500 font-medium text-xl mt-2 px-2'>More</Text>
-      </TouchableOpacity>
+      </TouchableOpacity  >
       </View>
       <FlatList
         horizontal
@@ -143,28 +147,10 @@ const HomeScreen = () => {
         />
       </View>
       
-      {/* <View className="h-64 w-full">
-        <Text className="text-sky-700 font-medium text-xl mt-2 px-2" > Most Popular Restaurants </Text>
-        <FlatList
-          style={{
-            flexGrow: 1,
-            paddingHorizontal: 10,
-            paddingVertical: 10,
-            paddingTop : 5
-          }}
-
-          data={Cards}
-          renderItem={(itemData) => {
-            return (
-              <>
-                 <RestaurantsCard profile={itemData.item.photo} title={itemData.item.product} />
-              </>
-            )
-          }}
-          keyExtractor ={(item) => item.id}
-        />
-      </View> */}
     </View>
+      </ScrollView>
+    </SafeAreaView>
+    </KeyboardAvoidingView>
   )
 }
 

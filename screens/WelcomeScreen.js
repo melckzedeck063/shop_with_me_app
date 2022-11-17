@@ -20,26 +20,14 @@ const WelcomeScreen = () => {
         flex: 1, justifyContent
        : 'center'}} >
 
-        <View className="bg-whitee" style={{height : height < 400 ? 50 : 120}} ></View>
+        {/* <View className="bg-whitee" style={{height : height < 380 ? 50 : 80}} ></View> */}
       {/* <Text>WelcomeScreen</Text> */}
       <View className="relative">
-        {/* <View className="pt-2">
-        <Image source={image1} className={`h-[8rem] w-10/12 mx-auto border-2-slate-300`}
-             style={{ height : height < 400 ? height/3 : height/3, alignSelf: 'center', borderRadius : width < 400 ? height/2 : height/2, width: width< 300 ? width/2 : width/1.5 }}
-        />
-        </View> */}
         
-        <View className="py-4 bg-blue-600 shadow-md px-2 rounded-xl absolute top-10 w-10/12" style={{alignSelf : 'center'}}>
+          <View className={`selection:this.first = this.first.bind(this)py-2 bg-blue-600 shadow-md px-2 rounded-xl absolute ${height < 450 ? 'top-4' : 'top-7'} ${width < 380 ? 'w-10/12' : 'w-8/12'}`}  style={{alignSelf : 'center'}}>
            <Text className="text-xl font-medium text-sky-100 my-2 text-center" >We Bring The Best Products For You as an Enthusiat </Text>
            <Text className="my-2 text-sm text-center text-gray-100 px-2" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat labore ad similique esse ut vitae </Text>
            
-        {/* <View className="mt-2 py-2" >
-             <TouchableOpacity style={{alignSelf: 'center'}} className="rounded-md px-2 py-1 bg-sky-600 hover:text-sky-300 w-9/12 mx-auto"
-             onPress={() => navigation.navigate('SignUp') }
-             >
-                <Text className="text-xl font-medium text-sky-100 text-center" >Sign Up</Text>
-             </TouchableOpacity>
-        </View> */}
         
         <View className="mt-2 py-2" >
              <TouchableOpacity style={{alignSelf: 'center'}} className="rounded-lg px-2 py-1 bg-sky-100 hover:text-sky-300 w-9/12 mx-auto"

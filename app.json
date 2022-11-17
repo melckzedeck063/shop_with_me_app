@@ -3,7 +3,7 @@
     "name": "shop_with_me",
     "slug": "shop_with_me",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {

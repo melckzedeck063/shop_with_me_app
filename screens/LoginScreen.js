@@ -39,21 +39,13 @@ const LoginScreen = () => {
     }
 
   return (
-    <View className = 'bg-slate-200 w-full h-full py-6'>
           <KeyboardAvoidingView>
-          <Text className={`text-sky-600 text-center font-medium text-3xl ${height < 400 ? 'mt-24' : 'mt-36'} `}>Login Screen</Text>
-      <View  className="w-10/12 mx-auto shadow-md bg-white rounded-md py-4 mt-4 px-6" style={{alignSelf : 'center'}} >
+    <View className={`bg-slate-200 w-full h-full ${height < 300 ? 'py-2' : 'py-6'} `}>
+          {/* <Text className={`text-sky-600 text-center font-medium text-3xl ${height < 400 ? 'mt-1' : 'mt-24'} `}>Login Screen</Text> */}
+        <View className={`mx-auto shadow-md bg-white rounded-md ${height < 400 ? 'mt-3 py-1' : 'py-4 mt-48'} ${width < 400 ? 'w-10/12' : 'w-7/12'} px-6`}  style={{alignSelf : 'center'}} >
       <Text className="text-2xl font-medium text-sky-600 text-center" >Sign In</Text>
           <View className="my-2">
            <Text className="text-sky-600 text-xl" > Username</Text>
-            {/* <TextInput className={`rounded-md bg-white px-4 py-1.5`}
-                      placeholder="Enter username"
-                      textContentType='emailAddress'
-                  name="username"
-                  control={control}
-                  value={field.value}
-                  onChangeText={field.onChange}
-             /> */}
       <Controller
         control={control}
         rules={{
@@ -109,8 +101,8 @@ const LoginScreen = () => {
             </View>
         </View>
       </View>
-          </KeyboardAvoidingView>
     </View>
+          </KeyboardAvoidingView>
   )
 }
 

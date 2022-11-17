@@ -8,6 +8,7 @@ import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
+import RestaurantScreen from './screens/RestaurantScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,7 @@ export default function App() {
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name='SignUp' component={SignUpScreen} />
             <Stack.Screen name='Home' component={HomeScreen} />
+            <Stack.Screen name='Restaurant' component={RestaurantScreen} />
           </Stack.Navigator>
         </TailwindProvider>
       </NavigationContainer>

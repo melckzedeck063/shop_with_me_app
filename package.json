@@ -13,6 +13,7 @@
     "@hookform/resolvers": "^2.9.10",
     "@react-navigation/native-stack": "^6.9.0",
     "expo": "~46.0.9",
+    "expo-linear-gradient": "^12.0.1",
     "expo-status-bar": "~1.4.0",
     "react": "18.0.0",
     "react-hook-form": "^7.39.1",

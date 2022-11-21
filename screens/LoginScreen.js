@@ -52,7 +52,7 @@ const LoginScreen = () => {
           required: true,
         }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput  className={`rounded-md bg-white px-4 py-1.5`}
+          <TextInput  className={`rounded-md bg-gray-100 px-4 py-1.5`}
           placeholder="Enter username"
             onBlur={onBlur}
             onChangeText={onChange}
@@ -72,7 +72,7 @@ const LoginScreen = () => {
           min : 8
         }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput  className={`rounded-md bg-white px-4 py-1.5`}
+          <TextInput  className={`rounded-md bg-gray-100 px-4 py-1.5`}
           placeholder="Enter password"
             onBlur={onBlur}
             onChangeText={onChange}

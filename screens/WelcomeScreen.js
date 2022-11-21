@@ -41,6 +41,7 @@ const WelcomeScreen = () => {
         
             
       </View>
+       <Text className="text-blue-600 text-center" > Developed and maintained bt @Cotton </Text>
       </ImageBackground>
     </View>
   )

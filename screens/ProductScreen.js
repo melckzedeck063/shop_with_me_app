@@ -1,7 +1,8 @@
 import { View, Text , SafeAreaView, TouchableOpacity, Image, useWindowDimensions, ScrollView} from 'react-native'
-import React from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import { Entypo, FontAwesome, Ionicons, FontAwesome5 }  from '@expo/vector-icons'
+import { Entypo, FontAwesome, Ionicons, FontAwesome5 } from '@expo/vector-icons'
+import { LinearGradient } from 'expo-linear-gradient'
 
 const ProductScreen = () => {
 
@@ -9,10 +10,17 @@ const ProductScreen = () => {
   const { params: { props } } = useRoute()
   const { width, height } = useWindowDimensions();
 
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title : props.title
+    })
+  }, [])
+
   return (
     <SafeAreaView>
-         <ScrollView>
-         <View className="bg-gray-200 p-1" >
+          <LinearGradient colors={['transparent', '#F54749']} >
+          <ScrollView>
+         <View className="bg-grayy-200 p-1" >
            <View className="">
              <View style={{alignSelf : 'center', height : height < 400 ? height/1.8 : height/2.8}} className="bg-gray-300 pxx-1 pb-2 rounded-md w-full relative shadow-xl mx-auto  topp-2">
                 <Image source={props.photo} className="h-full w-full overflow-hidden rounded-lg" />
@@ -32,12 +40,12 @@ const ProductScreen = () => {
                 <Text className="text-center font-bold text-xl"> {props.title} humberger </Text>
                 </View>
                 <View className="flex-row bg-slate-200 space-x-4 px-3 py-1 rounded-lg" >
-                  <TouchableOpacity className="bg-white rounded-full h-8 w-8">
-                    <Text className="text-center mt-1" > <FontAwesome name='minus' size={24} color="black" className="mt-0.5 text-center" /> </Text>
+                  <TouchableOpacity className="bg-red-400 rounded-full h-8 w-8">
+                    <Text className="text-center mt-1" > <FontAwesome name='minus' size={24} color="white" className="mt-0.5 text-center" /> </Text>
                   </TouchableOpacity>
-                  <Text className="text-slate-700 font-medium text-2xl" > 4 </Text>
-                  <TouchableOpacity className="bg-white rounded-full h-8 w-8">
-                  <Text className="text-center font-bold mt-1" > <Entypo name='plus' size={24} color="orange" className="mt-0.5 text-center" /> </Text>
+                  <Text className="text-red-400 font-medium text-2xl" > 4 </Text>
+                  <TouchableOpacity className="bg-red-400 rounded-full h-8 w-8">
+                  <Text className="text-center font-bold mt-1" > <Entypo name='plus' size={24} color="white" className="mt-0.5 text-center" /> </Text>
                   </TouchableOpacity>
                 </View>
              </View>
@@ -73,10 +81,10 @@ const ProductScreen = () => {
               <View className="flex-row justify-between mx-auto">
                 <View className="">
                   <Text className="text-slate-600 text-lg font-medium">2 items</Text>
-                  <Text className="text-slate-800 font-bold text-lg">$ 7.21</Text>
+                  <Text className="text-red-400 font-bold text-lg">$ 7.21</Text>
                 </View>
                 <View className="">
-                  <TouchableOpacity className="bg-blue-600 rounded-lg px-4 py-2" >
+                  <TouchableOpacity className="bg-red-400 rounded-lg px-4 py-2 mt-1.5" >
                      <Text className="flex row space-x-2" >
                       <Ionicons name='ios-cart' size={32} color="white" className="mt-0.5" />
                      <Text className="font-bold text-white text-lg" > Add to Cart </Text>
@@ -88,6 +96,7 @@ const ProductScreen = () => {
            </View>
          </View>
          </ScrollView>
+          </LinearGradient>
       </SafeAreaView>
   )
 }

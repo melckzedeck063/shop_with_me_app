@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native'
 import CategoryCard from '../components/card_component'
 import ComponentCard from '../components/ComponentCard'
 import RestaurantsCard from '../components/RestaurantsCard'
+import ProductCard from '../components/ProductCard'
 import { useForm, Controller } from 'react-hook-form'
 
 import {Ionicons, FontAwesome5} from '@expo/vector-icons'
@@ -27,9 +28,9 @@ const HomeScreen = () => {
   const navigation = useNavigation();
   const { width, height } = useWindowDimensions();
 
-  navigation.setOptions({
-    headerShown : false
-  })
+  // navigation.setOptions({
+  //   headerShown : false
+  // })
 
   const { handleSubmit, reset, control, formState: { errors, isDirty, isValid } } = useForm()
   const onSubmit = data => {
@@ -38,10 +39,10 @@ const HomeScreen = () => {
   
   return (
     <KeyboardAvoidingView>
-      <SafeAreaView >
+      {/* <SafeAreaView > */}
       <ScrollView >
       <View className='bg-gray-200 w-full h-full'>
-      <View className={`${height < 400 ? 'mt-8' : 'mt-12'}`} >
+      <View className={`${height < 400 ? 'mt-1' : 'mt-1'}`} >
         <View className="flex-row justify-between mx-auto px-4">
           <View>
              <Ionicons className="font-bold text-xl" name='ios-menu' size={32} color="blue" />
@@ -71,7 +72,7 @@ const HomeScreen = () => {
       {/* {errors.password && <Text className="text-red-500">This is required.</Text>} */}
        </View>
        <View className="mt-1.5">
-       <TouchableOpacity disabled={!isDirty || !isValid} className="rounded-md px-2 bg-blue-600 py-1 hover:text-sky-300"
+       <TouchableOpacity disabled={!isDirty || !isValid} className="rounded-md px-2 bg-red-400 py-1 hover:text-sky-300"
        onPress={handleSubmit(onSubmit)}
         >
           <Text className="text-xl font-medium text-sky-100 text-center" >Search</Text>
@@ -83,18 +84,18 @@ const HomeScreen = () => {
         <View className="px-1 my-1.5">
           <Text className="font-medium text-sky-600 text-lg ml-4" >Hi (username) 👋 </Text>
           <Text className="font-bold text-2xl ml-4" > Find Your Food </Text>
-          <View className="bg-blue-600 rounded-lg shadow-lg w-11/12 flex-row space-x-6" style={{alignSelf : 'center'}} >
+          <View className="bg-red-400 rounded-lg shadow-lg w-11/12 flex-row justify-between mx-auto space-x-6" style={{alignSelf : 'center'}} >
             <View className="">
               <Image source={image}  style={{height : 100, width : 150}} className="rounded overflow-hidden" />
             </View>
-            <View className="">
+            <View className="pr-3">
               <Text className="mt-1 font-medium text-sky-100 text-xl" >Quick Delivery </Text>
               <Text className="mt-1 font-medium text-sky-100 text-sm" >8:00 Am -  10:00 Pm </Text>
               <View className="mt-1">
               <TouchableOpacity className="rounded-md px-1 bg-blue-100 py-0.5 hover:text-sky-300"
               // onPress={handleSubmit(onSubmit)}
                >
-          <Text className="text-lg text-sky-600 text-center" >Order Now</Text>
+          <Text className="text-lg text-red-400 text-center" >Order Now</Text>
         </TouchableOpacity>
        </View>
             </View>
@@ -127,7 +128,7 @@ const HomeScreen = () => {
      
      <View className="my-2">
         <Text className="text-sky-700 font-medium text-xl mt-1 px-2" > Most Popular Products </Text>
-        <FlatList
+        {/* <FlatList
           horizontal 
           showsHorizontalScrollIndicator={true}
           style={{
@@ -144,12 +145,23 @@ const HomeScreen = () => {
             )
           }}
           keyExtractor={(item) => item.id}
-        />
+        /> */}
       </View>
-      
+      <ScrollView className="space-x-4 w-full"
+             horizontal={true}
+            >
+              {
+                    Cards && Cards.map((item) => (
+                      <View key={item.id} >
+                        <ProductCard photo={item.photo} title={item.product} className="w-full" />
+                      </View>
+                ))
+              }
+              
+            </ScrollView>
     </View>
       </ScrollView>
-    </SafeAreaView>
+    {/* </SafeAreaView> */}
     </KeyboardAvoidingView>
   )
 }

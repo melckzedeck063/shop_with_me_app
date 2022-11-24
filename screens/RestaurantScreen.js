@@ -1,5 +1,5 @@
 import { View, Text , SafeAreaView, Image, TouchableOpacity, FlatList, useWindowDimensions, ScrollView} from 'react-native'
-import React from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 
 
@@ -22,23 +22,26 @@ const RestaurantScreen = () => {
     const navigation = useNavigation();
     const { params: { props } } = useRoute();
     // console.log(props)
-  navigation.setOptions({
-    headerShown : false
-  })
+  
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title : props.title
+    })
+  }, [])
 
     const { height, width } = useWindowDimensions();
 
     return (
       <SafeAreaView>
         <ScrollView>
-        <View className="bg-gray-200" >
+        <View className="bg-gray-100" >
            <View className="relative">
-             <View style={{alignSelf : 'center', height : height/2.5}} className="w-full border-4 shadow-xl borrder-blue-800 mx-auto absolutee">
+             <View style={{alignSelf : 'center', height : height/2.4}} className="w-full pt-6 border-4 shadow-xl borrder-blue-800 mx-auto absolutee">
                 <Image source={props.coverImage} className="h-full w-full overflow-hidden" />
              </View>
-           <Text className="py-3 text-lg" >RestaurantScreen</Text>
+           <Text className="py-3 text-xl text-center font-bold" >RestaurantScreen</Text>
               
-            <View className="bg-gray-300 py-2 w-fulll px-2">
+            <View className="bg-grayy-300 py-2 w-fulll px-2">
               <View className="py-2 px-2" >
                 <Text className="text-lg font-medium text-slate-700">Available Products</Text>
               </View>
@@ -55,8 +58,7 @@ const RestaurantScreen = () => {
               
             </ScrollView>
             </View>
-
-
+            
             
            </View>
          </View>

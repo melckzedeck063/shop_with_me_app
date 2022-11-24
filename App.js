@@ -18,10 +18,16 @@ export default function App() {
 
   return (
     <>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
+      {/* <LinearGradient colors={['#073CFC', 'transparent']} > */}
       <NavigationContainer>
         <TailwindProvider>
-          <Stack.Navigator>
+          <Stack.Navigator
+            screenOptions={{
+              headerStyle: { backgroundColor: '#D54749' },
+              headerTintColor : 'white'
+           }}
+          >
             <Stack.Screen name="Welcome" component={WelcomeScreen} />
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name='SignUp' component={SignUpScreen} />
@@ -31,6 +37,7 @@ export default function App() {
           </Stack.Navigator>
         </TailwindProvider>
       </NavigationContainer>
+      {/* </LinearGradient> */}
     </>
   );
 }
